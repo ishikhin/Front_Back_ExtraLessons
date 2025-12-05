@@ -3,213 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revo Coffee</title>
-    <meta name="description" content="Revo Coffee — вьетнамский кофе. Подарочные наборы, комбо и различные сорта кофе.">
+    <title>Revo Coffee — Вьетнамский кофе премиум-класса</title>
+    <meta name="description" content="Revo Coffee — вьетнамский кофе. Подарочные наборы, комбо и различные сорта кофе. Прямые поставки из Вьетнама.">
+    <meta name="keywords" content="кофе, вьетнамский кофе, Revo Coffee, подарочные наборы, комбо наборы, арабика, робуста">
+    <meta name="author" content="Revo Coffee">
     <link rel="icon" type="image/svg+xml" href="assets/icons/icon4.png">
     <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site-header">
-    <div class="container header-inner">
-        <a class="logo" href="#" aria-label="Revo Coffee главная страница">
-            <img src="assets/img/LOGO.png" alt="Логотип Revo Coffee" width="160" height="40">
+<!-- Шапка сайта с Flexbox -->
+<header class="site-header" id="site-header">
+    <div class="container header">
+        <a class="header__logo" href="#" aria-label="Revo Coffee — переход на главную страницу">
+            <img src="assets/img/LOGO.png" alt="Логотип Revo Coffee — вьетнамский кофе премиум-класса" width="160" height="40" loading="lazy">
         </a>
 
-        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню"></button>
+        <button class="header__nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню навигации">
+            <span class="header__nav-toggle-icon"></span>
+            <span class="visually-hidden">Меню</span>
+        </button>
 
-        <nav id="main-nav" class="main-nav" aria-label="Главное меню">
-            <ul>
-                <li><a href="javascript:void(0)">ГЛАВНАЯ</a></li>
-                <li><a href="javascript:void(0)">КОФЕ</a></li>
-                <li><a href="javascript:void(0)">ФИЛЬТР ДЛЯ КОФЕ</a></li>
-                <li><a href="javascript:void(0)">КОМБО НАБОРЫ</a></li>
-                <li><a href="javascript:void(0)">ПОДАРОЧНЫЕ НАБОРЫ</a></li>
-                <li><a href="javascript:void(0)">КОНТАКТЫ</a></li>
+        <nav class="nav" id="main-nav" aria-label="Главное меню навигации">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="#hero">ГЛАВНАЯ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#coffee">КОФЕ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#filters">ФИЛЬТР ДЛЯ КОФЕ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#combos">КОМБО НАБОРЫ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#peculiarities">ОСОБЕННОСТИ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#contact">КОНТАКТЫ</a>
+                </li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main class="site-main">
-    <section class="hero container" aria-labelledby="hero-title">
-        <div class="hero-media">
-            <img src="assets/img/hero.png" alt="Подарочный набор кофе — иллюстрация">
+    <!-- Герой-секция с Grid -->
+    <section class="hero container" id="hero" aria-labelledby="hero-title">
+        <div class="hero__media">
+            <img class="hero__image" src="assets/img/hero.png" alt="Подарочный набор вьетнамского кофе Revo — изысканная упаковка с зернами кофе и аксессуарами" width="600" height="400" loading="eager">
         </div>
 
-        <div class="hero-content">
-            <h1 id="hero-title">ПОДАРОЧНЫЕ НАБОРЫ&nbsp;&mdash; Лучший подарок для лучшего друга</h1>
-            <p class="lead">
-                Идеальный подарок для настоящих ценителей кофе. Зёрна кофе тщательно отбираются компанией Revo,
-                обжариваются и&nbsp;перемалываются по&nbsp;технологии и&nbsp;секретам, перенятым у&nbsp;известных мастеров, вместе с
-                любовью и&nbsp;страстью... создавая чашки чистого кофе, созданные специально для вас.
+        <div class="hero__content">
+            <h1 id="hero-title" class="hero__title">ПОДАРОЧНЫЕ НАБОРЫ — Лучший подарок для лучшего друга</h1>
+
+            <p class="hero__lead">
+                Идеальный подарок для настоящих ценителей кофе.
             </p>
 
-            <ul class="meta">
-                <li><strong>Высота:</strong> 700–800 м</li>
-                <li><strong>Тип зёрен:</strong> Fine Robusta Blend</li>
-            </ul>
-
-            <div class="hero-actions">
-                <a class="btn primary" href="javascript:void(0)" role="button">КУПИТЬ СЕЙЧАС</a>
-                <a class="btn ghost" href="javascript:void(0)" role="button">ПОДРОБНЕЕ</a>
+            <div class="hero__actions">
+                <a class="btn btn--primary" href="#combos" role="button" aria-label="Перейти к покупке кофейных наборов">
+                    КУПИТЬ СЕЙЧАС
+                </a>
+                <a class="btn btn--secondary" href="#coffee" role="button" aria-label="Подробнее о сортах кофе Revo">
+                    ПОДРОБНЕЕ
+                </a>
             </div>
 
-            <article class="promo-card" aria-label="Подарочный набор продукта">
-                <h2>Подарочный набор &laquo;Вьетнамский фильтр-кофе&raquo;</h2>
-                <p class="price">100000</p>
-            </article>
         </div>
     </section>
 
-    <section class="section combos container" aria-labelledby="combos-title">
-        <h2 id="combos-title">КОМБО НАБОРЫ&nbsp;&mdash; Ваш свежий кофе</h2>
+    <!-- Секция комбо-наборов с Grid -->
+    <section class="section section--highlight" id="combos" aria-labelledby="combos-title">
+        <div class="container">
+            <h2 id="combos-title" class="section__title">КОМБО НАБОРЫ — Ваш свежий кофе каждый день</h2>
 
-        <div class="grid grid-3">
-            <article class="product-card">
-                <img src="assets/img/product1.png" alt="Комбо Revo Интенсивный">
-                <h3>Комbo Revo Интенсивный</h3>
-                <p class="desc">Содержание кофеина достаточно сильное, чтобы взбодрить вас.</p>
-                <div class="price-row">
-                    <span class="price-new">147000</span>
-                    <span class="price-old">155000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
+            <div class="grid grid--3">
+                <article class="product-card" aria-labelledby="combo-intensive">
+                    <img class="product-card__image" src="assets/img/product1.png" alt="Комбо набор Revo Интенсивный — темная обжарка" width="300" height="160" loading="lazy">
+                    <h3 id="combo-intensive" class="product-card__title">Комбо Revo Интенсивный</h3>
+                    <p class="product-card__desc">Содержание кофеина достаточно сильное, чтобы взбодрить вас. Идеально для утра.</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price-new">147 000 ₽</span>
+                        <span class="product-card__price-old">155 000 ₽</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a class="btn btn--primary btn--small" href="#contact" role="button">КУПИТЬ СЕЙЧАС</a>
+                        <a class="link" href="#combo-intensive-details" aria-label="Подробнее о наборе Revo Интенсивный">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
 
-            <article class="product-card">
-                <img src="assets/img/product2.png" alt="Комbo Revo Повседневный">
-                <h3>Комbo Revo Повседневный</h3>
-                <p class="desc">Revo Everyday&nbsp;&mdash; смесь горького вкуса и&nbsp;аромата.</p>
-                <div class="price-row">
-                    <span class="price-new">156000</span>
-                    <span class="price-old">165000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
+                <article class="product-card" aria-labelledby="combo-everyday">
+                    <img class="product-card__image" src="assets/img/product2.png" alt="Комбо набор Revo Повседневный — сбалансированный вкус" width="300" height="160" loading="lazy">
+                    <h3 id="combo-everyday" class="product-card__title">Комбо Revo Повседневный</h3>
+                    <p class="product-card__desc">Revo Everyday — смесь горького вкуса и аромата. Для ценителей классики.</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price-new">156 000 ₽</span>
+                        <span class="product-card__price-old">165 000 ₽</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a class="btn btn--primary btn--small" href="#contact" role="button">КУПИТЬ СЕЙЧАС</a>
+                        <a class="link" href="#combo-everyday-details" aria-label="Подробнее о наборе Revo Повседневный">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
 
-            <article class="product-card">
-                <img src="assets/img/product3.png" alt="Комbo Revo Медовый">
-                <h3>Комbo Revo Медовый</h3>
-                <p class="desc">Honey&nbsp;&mdash; происходит из&nbsp;метода обработки зёрен Арабики.</p>
-                <div class="price-row">
-                    <span class="price-new">275000</span>
-                    <span class="price-old">260000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <img src="assets/img/product4.png" alt="Комbo Revo Натуральный">
-                <h3>Комbo Revo Натуральный</h3>
-                <p class="desc">Особенная линейка от Revo Coffee.</p>
-                <div class="price-row">
-                    <span class="price-new">249000</span>
-                    <span class="price-old">236000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
+                <article class="product-card" aria-labelledby="combo-honey">
+                    <img class="product-card__image" src="assets/img/product3.png" alt="Комбо набор Revo Медовый — нежная обжарка" width="300" height="160" loading="lazy">
+                    <h3 id="combo-honey" class="product-card__title">Комбо Revo Медовый</h3>
+                    <p class="product-card__desc">Honey — происходит из метода обработки зёрен Арабики. Нежный сладковатый вкус.</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price-new">275 000 ₽</span>
+                        <span class="product-card__price-old">290 000 ₽</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a class="btn btn--primary btn--small" href="#contact" role="button">КУПИТЬ СЕЙЧАС</a>
+                        <a class="link" href="#combo-honey-details" aria-label="Подробнее о наборе Revo Медовый">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <section class="section favorites container" aria-labelledby="fav-title">
-        <h2 id="fav-title">СТАНДАРТНЫЕ ВКУСЫ&nbsp;&mdash; Выберите свой любимый</h2>
+    <!-- Секция стандартных вкусов с Grid -->
+    <section class="section" id="coffee" aria-labelledby="coffee-title">
+        <div class="container">
+            <h2 id="coffee-title" class="section__title">СТАНДАРТНЫЕ ВКУСЫ — Выберите свой любимый</h2>
 
-        <div class="grid grid-3">
-            <article class="product-card">
-                <img src="assets/img/product5.png" alt="REVO Утренний">
-                <h3>REVO Утренний</h3>
-                <p class="desc">Горький, сладкое послевкусие, цветочный аромат</p>
-                <div class="price-row">
-                    <span class="price-new">99000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
+            <div class="grid grid--3">
+                <article class="product-card" aria-labelledby="coffee-morning">
+                    <img class="product-card__image" src="assets/img/product5.png" alt="Кофе REVO Утренний — для начала дня" width="300" height="160" loading="lazy">
+                    <h3 id="coffee-morning" class="product-card__title">REVO Утренний</h3>
+                    <p class="product-card__desc">Горький, сладкое послевкусие, цветочный аромат. Идеален для пробуждения.</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price-new">99 000 ₽</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a class="btn btn--primary btn--small" href="#contact" role="button">КУПИТЬ СЕЙЧАС</a>
+                        <a class="link" href="#coffee-morning-details" aria-label="Подробнее о кофе REVO Утренний">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
 
-            <article class="product-card">
-                <img src="assets/img/product6.png" alt="REVO Повседневный">
-                <h3>REVO Повседневный</h3>
-                <p class="desc">Сбалансированный, горькое послевкусие, вкус шоколада</p>
-                <div class="price-row">
-                    <span class="price-new">85000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
+                <article class="product-card" aria-labelledby="coffee-daily">
+                    <img class="product-card__image" src="assets/img/product6.png" alt="Кофе REVO Повседневный — универсальный сорт" width="300" height="160" loading="lazy">
+                    <h3 id="coffee-daily" class="product-card__title">REVO Повседневный</h3>
+                    <p class="product-card__desc">Сбалансированный, горькое послевкусие, вкус шоколада. На каждый день.</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price-new">85 000 ₽</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a class="btn btn--primary btn--small" href="#contact" role="button">КУПИТЬ СЕЙЧАС</a>
+                        <a class="link" href="#coffee-daily-details" aria-label="Подробнее о кофе REVO Повседневный">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
 
-            <article class="product-card">
-                <img src="assets/img/product7.png" alt="REVO Медовый">
-                <h3>REVO Медовый</h3>
-                <p class="desc">Высокая сладость, сладкое послевкусие, кислинка яблока</p>
-                <div class="price-row">
-                    <span class="price-new">195000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <img src="assets/img/product8.png" alt="REVO Натуральный">
-                <h3>REVO Натуральный</h3>
-                <p class="desc">Сладкое послевкусие, цветочный аромат, кислинка клубники</p>
-                <div class="price-row">
-                    <span class="price-new">169000</span>
-                </div>
-                <div class="card-actions">
-                    <a class="btn primary" href="javascript:void(0)">КУПИТЬ СЕЙЧАС</a>
-                    <a class="link" href="javascript:void(0)">ПОДРОБНЕЕ</a>
-                </div>
-            </article>
-
+                <article class="product-card" aria-labelledby="coffee-honey">
+                    <img class="product-card__image" src="assets/img/product7.png" alt="Кофе REVO Медовый — сладковатый вкус" width="300" height="160" loading="lazy">
+                    <h3 id="coffee-honey" class="product-card__title">REVO Медовый</h3>
+                    <p class="product-card__desc">Высокая сладость, сладкое послевкусие, кислинка яблока. Для истинных гурманов.</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price-new">195 000 ₽</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a class="btn btn--primary btn--small" href="#contact" role="button">КУПИТЬ СЕЙЧАС</a>
+                        <a class="link" href="#coffee-honey-details" aria-label="Подробнее о кофе REVO Медовый">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <section class="section base container" aria-labelledby="base-title">
-        <h2 id="base-title">ОСНОВА КОФЕ&nbsp;&mdash; Ваш персонализированный кофе</h2>
+    <!-- Секция основы кофе с Grid -->
+    <section class="section coffee-base" id="base" aria-labelledby="base-title">
+        <div class="container">
+            <h2 id="base-title" class="section__title">ОСНОВА КОФЕ — Ваш персонализированный кофе</h2>
 
-        <div class="grid grid-4">
-            <article>
-                <h3>Происхождение</h3>
-                <p>Зёрна кофе Арабика и Робуста, соответствующие международным стандартам качества.</p>
-            </article>
-            <article>
-                <h3>Разновидности зёрен</h3>
-                <p>70% качества чашки кофе зависит от происхождения и качества зелёных зёрен.</p>
-            </article>
-            <article>
-                <h3>Качество</h3>
-                <p>Каждое зёрнышко кофе&nbsp;&mdash; это процесс интенсивной концентрации кофейных мастеров.</p>
-            </article>
-            <article>
-                <h3>Приготовление</h3>
-                <p>Зёрна кофе преображаются в процессе тщательной и строгой обжарки и помола.</p>
-            </article>
+            <div class="grid grid--4">
+                <article class="coffee-base__item" aria-labelledby="origin-title">
+                    <h3 id="origin-title" class="coffee-base__title">Происхождение</h3>
+                    <p class="coffee-base__desc">Зёрна кофе Арабика и Робуста, соответствующие международным стандартам качества. Сбор с лучших плантаций Вьетнама.</p>
+                </article>
+
+                <article class="coffee-base__item" aria-labelledby="beans-title">
+                    <h3 id="beans-title" class="coffee-base__title">Разновидности зёрен</h3>
+                    <p class="coffee-base__desc">70% качества чашки кофе зависит от происхождения и качества зелёных зёрен. Мы отбираем только лучшие.</p>
+                </article>
+
+                <article class="coffee-base__item" aria-labelledby="quality-title">
+                    <h3 id="quality-title" class="coffee-base__title">Качество</h3>
+                    <p class="coffee-base__desc">Каждое зёрнышко кофе — это процесс интенсивной концентрации кофейных мастеров с многолетним опытом.</p>
+                </article>
+
+                <article class="coffee-base__item" aria-labelledby="preparation-title">
+                    <h3 id="preparation-title" class="coffee-base__title">Приготовление</h3>
+                    <p class="coffee-base__desc">Зёрна кофе преображаются в процессе тщательной и строгой обжарки и помола по традиционным вьетнамским технологиям.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная секция -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 id="contact-title" class="section__title">КОНТАКТЫ — Свяжитесь с нами</h2>
+            <div class="contact-info" style="text-align: center; padding: var(--spacing-xl); background: var(--color-bg-light); border-radius: var(--radius-lg);">
+                <p style="margin-bottom: var(--spacing-md);">По вопросам заказа и сотрудничества:</p>
+                <address style="font-style: normal; margin-bottom: var(--spacing-md);">
+                    <p style="margin-bottom: var(--spacing-sm);">
+                        <strong>Телефон:</strong> 8 800 555-35-35
+                    </p>
+                    <p style="margin-bottom: var(--spacing-sm);">
+                        <strong>Email:</strong> privet@mail.ru
+                    </p>
+                    <p>
+                        <strong>Адрес:</strong> г. Москва, ул. Кофейная, д. 10
+                    </p>
+                </address>
+                <p>Работаем ежедневно с 9:00 до 21:00</p>
+            </div>
         </div>
     </section>
 </main>
 
-<footer class="site-footer">
+<!-- Футер -->
+<footer class="site-footer" id="site-footer">
     <div class="container">
-        <p>Revo Coffee Вьетнам&nbsp;&mdash; 2018</p>
+        <p class="site-footer__text">Revo Coffee — 2025</p>
     </div>
 </footer>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Мобильное меню
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                this.classList.toggle('header__nav-toggle--active');
+                mainNav.classList.toggle('nav--open');
+            });
+        }
+
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.classList.remove('header__nav-toggle--active');
+                    mainNav.classList.remove('nav--open');
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('site-header--scrolled');
+            } else {
+                header.classList.remove('site-header--scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+
+                if (href === '#') return;
+
+                e.preventDefault();
+
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            grids.forEach(grid => {
+                grid.style.animation = 'none';
+                setTimeout(() => {
+                    grid.style.animation = 'gridResize 0.3s ease';
+                }, 10);
+            });
+
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                grids.forEach(grid => {
+                    grid.style.animation = '';
+                });
+            }, 300);
+        });
+    });
+</script>
 </body>
 </html>
