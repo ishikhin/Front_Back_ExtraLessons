@@ -14,7 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Шапка сайта -->
+
+<div class="nav-overlay" id="navOverlay"></div>
+
 <header class="site-header" id="site-header">
     <div class="container header">
         <a class="header__logo" href="#" aria-label="Revo Coffee — переход на главную страницу">
@@ -26,7 +28,6 @@
             <span class="visually-hidden">Меню</span>
         </button>
 
-        <!-- Навигация для десктопа -->
         <nav class="nav nav--desktop" id="main-nav" aria-label="Главное меню навигации">
             <ul class="nav__list list-reset">
                 <li class="nav__item">
@@ -47,7 +48,6 @@
             </ul>
         </nav>
 
-        <!-- Навигация для мобильных -->
         <nav class="nav nav--mobile" id="mobile-nav" aria-label="Мобильное меню навигации">
             <ul class="nav__list nav__list--mobile list-reset">
                 <li class="nav__item">
@@ -71,7 +71,6 @@
 </header>
 
 <main class="site-main">
-    <!-- Герой-секция -->
     <section class="hero container" id="hero" aria-labelledby="hero-title">
         <div class="hero__media">
             <img class="hero__image" src="assets/img/hero.png" alt="Подарочный набор вьетнамского кофе Revo" width="600" height="400" loading="eager">
@@ -101,7 +100,6 @@
         </div>
     </section>
 
-    <!-- Секция комбо-наборов -->
     <section class="section section--highlight" id="combos" aria-labelledby="combos-title">
         <div class="container">
             <h2 id="combos-title" class="section__title font-heading">КОМБО НАБОРЫ — Ваш свежий кофе каждый день</h2>
@@ -152,7 +150,6 @@
         </div>
     </section>
 
-    <!-- Секция стандартных вкусов -->
     <section class="section" id="coffee" aria-labelledby="coffee-title">
         <div class="container">
             <h2 id="coffee-title" class="section__title font-heading">СТАНДАРТНЫЕ ВКУСЫ — Выберите свой любимый</h2>
@@ -200,7 +197,6 @@
         </div>
     </section>
 
-    <!-- Секция основы кофе -->
     <section class="section coffee-base" id="base" aria-labelledby="base-title">
         <div class="container">
             <h2 id="base-title" class="section__title font-heading">ОСНОВА КОФЕ — Ваш персонализированный кофе</h2>
@@ -229,7 +225,6 @@
         </div>
     </section>
 
-    <!-- Контактная секция -->
     <section class="section" id="contact" aria-labelledby="contact-title">
         <div class="container">
             <h2 id="contact-title" class="section__title font-heading">КОНТАКТЫ — Свяжитесь с нами</h2>
@@ -250,18 +245,38 @@
             </div>
         </div>
     </section>
+
+    <section class="section qr-section" id="qr" aria-labelledby="qr-title">
+        <div class="container">
+            <h2 id="qr-title" class="section__title font-heading">QR-КОД ДЛЯ БЫСТРОГО ДОСТУПА</h2>
+
+            <div class="qr-container text-center">
+                <div class="qr-card">
+                    <img class="qr-image" src="assets/img/qr.png" alt="QR-код для быстрого перехода на сайт Revo Coffee" width="200" height="200" loading="lazy">
+
+                        <div class="qr-actions">
+                            <a class="btn btn--primary" href="https://ishikhin.github.io/Front_Back_ExtraLessons/" target="_blank" rel="noopener" aria-label="Открыть сайт Revo Coffee в новой вкладке">
+                                ОТКРЫТЬ САЙТ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
 </main>
 
-<!-- Футер -->
 <footer class="site-footer" id="site-footer">
     <div class="container">
         <p class="site-footer__text">Revo Coffee — 2025</p>
     </div>
 </footer>
 
+<button class="scroll-top" id="scrollTop" aria-label="Наверх">
+    ↑
+</button>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Элементы DOM
         const navToggle = document.getElementById('nav-toggle');
         const navToggleIcon = document.getElementById('nav-toggle-icon');
         const mobileNav = document.getElementById('mobile-nav');
@@ -269,23 +284,31 @@
         const header = document.querySelector('.site-header');
         const productCards = document.querySelectorAll('.product-card');
         const productImages = document.querySelectorAll('.product-card__image');
+        const scrollTopButton = document.getElementById('scrollTop');
+        const navOverlay = document.getElementById('navOverlay');
 
-        // Мобильное меню
+        function toggleMenu() {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navToggleIcon.classList.toggle('header__nav-toggle-icon--active');
+            mobileNav.classList.toggle('nav--mobile-open');
+            navOverlay.classList.toggle('active');
+
+            document.body.style.overflow = mobileNav.classList.contains('nav--mobile-open') ? 'hidden' : '';
+        }
+
         if (navToggle && navToggleIcon && mobileNav) {
-            navToggle.addEventListener('click', function() {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                navToggleIcon.classList.toggle('header__nav-toggle-icon--active');
-                mobileNav.classList.toggle('nav--mobile-open');
-            });
+            navToggle.addEventListener('click', toggleMenu);
+        }
+
+        if (navOverlay) {
+            navOverlay.addEventListener('click', toggleMenu);
         }
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navToggleIcon.classList.remove('header__nav-toggle-icon--active');
-                    mobileNav.classList.remove('nav--mobile-open');
+                    toggleMenu();
                 }
             });
         });
@@ -295,6 +318,14 @@
                 header.classList.add('site-header--scrolled');
             } else {
                 header.classList.remove('site-header--scrolled');
+            }
+
+            if (scrollTopButton) {
+                if (window.scrollY > 300) {
+                    scrollTopButton.classList.add('visible');
+                } else {
+                    scrollTopButton.classList.remove('visible');
+                }
             }
         });
 
@@ -315,6 +346,15 @@
                 }
             });
         });
+
+        if (scrollTopButton) {
+            scrollTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
 
         productCards.forEach((card, index) => {
             const image = productImages[index];
